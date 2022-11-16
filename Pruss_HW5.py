@@ -70,6 +70,25 @@ def calc_trimmed_mean(data, percent):
 #   a bootstrap simulation for the trimmed mean. 
 
 def bootstrap_simulation(data, percent, num_sims):
+    """
+    Runs a bootstrap simulation for the given data, calculating trimmed means
+    from the samples.
+
+    Parameters
+    ----------
+    data : list
+        The list of data to run the simulation on.
+    percent : float
+        The percent of data to trim off from the upper and lower ends of the sample.
+    num_sims : int
+        The number of simulations to run.
+
+    Returns
+    -------
+    sim_list : list
+        List of trimmed means from the simulation.
+
+    """
     
     sim_list = []
     
@@ -80,6 +99,24 @@ def bootstrap_simulation(data, percent, num_sims):
     return sim_list
     
 def bootstrap_hist(dat, percent, num_sims):
+    """
+    Creates a histogram of trimmed means from a bootstrap simulation on the data.
+
+    Parameters
+    ----------
+    dat : list
+        The list of data to run the simulation on.
+    percent : float
+        The percent of data to trim off from the upper and lower ends of the sample.
+    num_sims : int
+        The number of simulations to run.
+
+    Returns
+    -------
+    p : plot
+        The histogram plot of trimmed means.
+
+    """
     
     sim_list = bootstrap_simulation(dat, percent, num_sims)
     
@@ -91,7 +128,7 @@ def bootstrap_hist(dat, percent, num_sims):
     return p
     
 # test
-bootstrap_simulation([0,1,2,3,4,5,6,7,8,9], .25, 15) # 
+bootstrap_simulation([0,1,2,3,4,5,6,7,8,9], .25, 15)
 
 
 
