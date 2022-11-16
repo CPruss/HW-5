@@ -78,6 +78,9 @@ def bootstrap_simulation(data, percent, num_sims):
     return sim_list
     
 # test
-bootstrap_simulation([0,1,2,3,4,5,6,7,8,9], .25, 15)
+bootstrap_simulation([0,1,2,3,4,5,6,7,8,9], .25, 15) # 
 
+import pandas as pd
 
+dat = pd.read_csv("ckconcentration.csv")
+bootstrap_simulation(list(dat["CKConcentration"]), .2, 15)
