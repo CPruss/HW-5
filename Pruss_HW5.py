@@ -97,4 +97,4 @@ bootstrap_simulation([0,1,2,3,4,5,6,7,8,9], .25, 15) #
 
 dat = pd.read_csv("ckconcentration.csv")
 bootstrap_simulation(list(dat["CKConcentration"]), .2, 15)
-bootstrap_hist(list(dat["CKConcentration"]), .2, 100)
+bootstrap_hist(list(dat["CKConcentration"]), .2, 10000)
