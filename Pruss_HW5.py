@@ -2,6 +2,8 @@
 #   points.
 
 import random
+from plotnine import *
+import pandas as pd
 
 def bootstrap_sample(data):
     """
@@ -77,10 +79,22 @@ def bootstrap_simulation(data, percent, num_sims):
         
     return sim_list
     
+def bootstrap_hist(dat, percent, num_sims):
+    
+    sim_list = bootstrap_simulation(dat, percent, num_sims)
+    
+    p = (
+        ggplot(data = pd.DataFrame(sim_list))+
+        aes(x = sim_list)+
+        geom_histogram()
+        )
+    return p
+    
 # test
 bootstrap_simulation([0,1,2,3,4,5,6,7,8,9], .25, 15) # 
 
-import pandas as pd
+
 
 dat = pd.read_csv("ckconcentration.csv")
 bootstrap_simulation(list(dat["CKConcentration"]), .2, 15)
+bootstrap_hist(list(dat["CKConcentration"]), .2, 100)
